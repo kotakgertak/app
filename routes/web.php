@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FilmController;
+use App\Http\Controllers\GenreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,13 +14,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+Route::group(['prefix' => 'genre', 'middleware' => 'auth'], function () {
+    Route::get('/comedy', [GenreController::class, 'showComedy'])->name('genre.comedy');
+});
+
+Route::get('/nussa', [FilmController::class, 'showNussa'])->name('nussa');
