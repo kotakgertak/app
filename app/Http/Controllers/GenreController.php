@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
-    public function showComedy() {
-        return view('comedy');
+    public function show() {
+        return view('genre');
     }
 }

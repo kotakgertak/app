@@ -5,21 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Like extends Model
+class Series extends Model
 {
     use HasFactory;
-    protected $table = 'like';
+    protected $table = 'series';
 	protected $fillable = [
-        'id_film',
-		'id_liker'
+		'series',
+        'id_film'
 	];
-
-    public function liker() {
-        return $this->belongsTo(User::class, 'id_liker', 'id');
-    }
 
     public function film() {
         return $this->belongsTo(Film::class, 'id_film', 'id');
     }
 }
-

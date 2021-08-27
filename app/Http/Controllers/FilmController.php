@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class FilmController extends Controller
 {
-    public function showNussa() {
-        return view('nussa');
+    public function show() {
+        return view('film');
     }
 }

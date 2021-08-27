@@ -42,4 +42,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function chat() {
+        return $this->hasMany(Chat::class, 'id_user', 'id');
+    }
+
+    public function comment() {
+        return $this->hasMany(Comment::class, 'id_user', 'id');
+    }
+
+    public function film() {
+        return $this->hasMany(Film::class, 'id_user', 'id');
+    }
+
+    public function like() {
+        return $this->hasMany(Like::class, 'id_user', 'id');
+    }
 }

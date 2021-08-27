@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::group(['prefix' => 'genre', 'middleware' => 'auth'], function () {
-    Route::get('/comedy', [GenreController::class, 'showComedy'])->name('genre.comedy');
+    Route::get('/comedy', [GenreController::class, 'show'])->name('genre.comedy');
 });
 
-Route::get('/nussa', [FilmController::class, 'showNussa'])->name('nussa');
+Route::get('/nussa', [FilmController::class, 'show'])->name('nussa');
